@@ -9,8 +9,8 @@ This project is fully optimized and pre-configured for **Cloudflare Pages** and 
 
 | File | Purpose |
 |------|---------|
-| `wrangler.json` & `wrangler.toml` | Cloudflare configuration declaring `pages_build_output_dir = "dist"` and `nodejs_compat`. |
-| `.nvmrc` & `.node-version` | Pins Node.js runtime to `20` for modern Vite 6 & React 19 builds. |
+| `wrangler.json` & `wrangler.toml` | Cloudflare Pages configuration declaring `pages_build_output_dir = "dist"` and `nodejs_compat`. |
+| `.nvmrc` & `.node-version` | Pins Node.js runtime to `22` for modern Vite 6, React 19 & Supabase compatibility. |
 | `public/_redirects` | Rewrites all routes (`/* /index.html 200`) so `/admin`, `/orders/:token`, and `/tracking` load on page refresh without 404s. |
 | `public/_headers` | Adds security headers and 1-year immutable caching for `/assets/*` with instant-fresh `index.html`. |
 | `functions/api/[[catchall]].ts` | Serverless Edge API router for Cloudflare Pages Functions (`/api/*`). |
@@ -30,6 +30,7 @@ This project is fully optimized and pre-configured for **Cloudflare Pages** and 
    - **Build command:** `npm run build` (or `npm run build:cloudflare`)
    - **Build output directory:** `dist`
    - **Root directory:** `/`
+   - **Deploy command:** *(Leave empty/blank! If Cloudflare requires one, use `npx wrangler pages deploy dist`)*
 6. (Optional) Set **Environment Variables** under **Settings > Environment Variables**:
    - `VITE_SUPABASE_URL`: `https://mlbjulhzbhnqkzzohgcm.supabase.co`
    - `VITE_SUPABASE_ANON_KEY`: `sb_publishable_wepmD-cYmB4FyuoS2EByeA_pzfVNM_c`
