@@ -1,0 +1,29 @@
+# Cloudflare Pages Headers Configuration
+# Punjabi Bistro & Bakery Dharamkot
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(self), camera=(), microphone=()
+
+# Immutable caching for Vite generated asset bundles with content hashes
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Ensure index.html is never served stale so users always receive latest releases
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Brand logos, icons and images
+/*.png
+  Cache-Control: public, max-age=86400
+
+/*.jpg
+  Cache-Control: public, max-age=86400
+
+/*.webp
+  Cache-Control: public, max-age=86400
+
+/*.svg
+  Cache-Control: public, max-age=86400

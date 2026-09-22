@@ -22,7 +22,33 @@
 
 ---
 
-## 🌐 Deploying on Netlify (Ready Out-of-the-Box)
+## ☁️ Deploying on Cloudflare (Pages & Workers Ready)
+
+This application is fully optimized for **Cloudflare Pages** and **Cloudflare Workers**. All single-page application (SPA) routing, immutable asset caching headers, serverless Edge functions (`/functions/api`), and Supabase cloud persistence work right out-of-the-box.
+
+### Option A: Cloudflare Pages via GitHub (Recommended)
+1. Go to the [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create Application** → **Pages** → **Connect to Git**.
+2. Select your GitHub repository.
+3. In **Build Settings**:
+   - **Framework preset:** `Vite`
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+4. Under **Environment variables**, set:
+   - `VITE_SUPABASE_URL`: `https://mlbjulhzbhnqkzzohgcm.supabase.co`
+   - `VITE_SUPABASE_ANON_KEY`: `sb_publishable_wepmD-cYmB4FyuoS2EByeA_pzfVNM_c`
+5. Click **Save and Deploy**!
+
+### Option B: Cloudflare CLI (Wrangler)
+```bash
+npm run build:cloudflare
+npx wrangler pages deploy dist --project-name=punjabi-bistro-dharamkot
+```
+
+*(See detailed guide in `CLOUDFLARE_DEPLOY.md`)*
+
+---
+
+## 🌐 Deploying on Netlify (Alternative)
 
 This project includes pre-configured `netlify.toml` and `public/_redirects` files for clean Single-Page Application (SPA) routing on Netlify.
 
